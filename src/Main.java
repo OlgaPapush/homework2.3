@@ -178,6 +178,10 @@ public class Main {
        gazelle.eat();
        gazelle.slip();
        gazelle.moving();
+        penguin.eat();
+        penguin.slip();
+        penguin.moving();
+
 
 
 

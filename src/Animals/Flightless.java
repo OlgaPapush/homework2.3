@@ -3,11 +3,11 @@ package Animals;
 
 import java.util.Objects;
 
-public class flightless extends birds{
+public class Flightless extends Birds {
 
     private String typrOfFood;
 
-    public flightless(String name, int age, String livingEnvironment, String typrOfFood) {
+    public Flightless(String name, int age, String livingEnvironment, String typrOfFood) {
         super(name, age, livingEnvironment);
         if (typrOfFood == null || typrOfFood.isEmpty() && !typrOfFood.isBlank()) {
             this.typrOfFood = "Не указано";
@@ -45,7 +45,7 @@ public class flightless extends birds{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        flightless that = (flightless) o;
+        Flightless that = (Flightless) o;
         return typrOfFood.equals(that.typrOfFood);
     }
 

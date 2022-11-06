@@ -1,25 +1,19 @@
-package transport;
+package Transport;
 
 public class Train extends Transport {
-
-
-    public Train(String brand, String model, int productionYear, String productionCountry, String color,  double maximumSpeed) {
-        super(brand, model, productionYear, productionCountry, color,  maximumSpeed);
-
-    }
-
     private String departureStantion;
+
     private String endingStantion;
     private double tripPrice;
     private double timePrice;
     private String stationName;
 
     private  int numberOfWagons;
-
     public Train(String brand,
                  String model,
                  int productionYear,
                  String productionCountry,
+                 double engineVolume,
                  String color,
                  double maximumSpeed,
                  String departureStantion,
@@ -28,13 +22,43 @@ public class Train extends Transport {
                  double timePrice,
                  String stationName,
                  int numberOfWagons) {
-        super(brand, model,  productionYear, productionCountry, color, maximumSpeed);
-        this.departureStantion = departureStantion;
-        this.endingStantion = endingStantion;
-        this.tripPrice = tripPrice;
-        this.timePrice = timePrice;
-        this.stationName = stationName;
-        this.numberOfWagons = numberOfWagons;
+        super(brand, model, productionYear, productionCountry, engineVolume, color, maximumSpeed);
+
+        if (departureStantion != null || !departureStantion.isEmpty() && !departureStantion.isBlank()) {
+            this.departureStantion = departureStantion;
+        }else{
+            System.out.println("No info");
+        }
+
+        if (endingStantion != null || !endingStantion.isEmpty() && !endingStantion.isBlank()) {
+            this.endingStantion = endingStantion;
+        }else{
+            System.out.println("No info");
+        }
+
+        if (tripPrice != 0) {
+            this.tripPrice = tripPrice;
+        }else{
+            System.out.println("No info");
+        }
+
+        if (timePrice != 0) {
+            this.timePrice = tripPrice;
+        }else{
+            System.out.println("No info");
+        }
+
+        if (stationName != null || !stationName.isEmpty() && !stationName.isBlank()) {
+            this.stationName = endingStantion;
+        }else{
+            System.out.println("No info");
+        }
+        if (numberOfWagons != 0) {
+            this.numberOfWagons = numberOfWagons;
+        }else{
+            System.out.println("No info");
+        }
+
     }
 
     public double getTripPrice() {
@@ -97,8 +121,21 @@ public class Train extends Transport {
                 ". Цена поездки " + getTripPrice() +
                 ", в поезде " + getNumberOfWagons() + " вагонов.");
     }
+
+    @Override
+    public void startMoving() {
+        System.out.println(getBrand() + " " + getModel() + "начинает движение");
+
+    }
+
+    @Override
+    public void finishtMoving() {
+        System.out.println(getBrand() + " " + getModel() + "заканчивает движение" );
+
+    }
+
     public  void refill(){
-        System.out.println("Заправляется дизелем");
+        System.out.println(getBrand() + " " + getModel() + " заправляется дизелем");
 
     }
 }

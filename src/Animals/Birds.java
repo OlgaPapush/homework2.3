@@ -2,11 +2,11 @@ package Animals;
 
 import java.util.Objects;
 
-public abstract class birds extends Animals{
+public abstract class Birds extends Animals{
 
     private String livingEnvironment;
 
-    public birds(String name, int age, String livingEnvironment) {
+    public Birds(String name, int age, String livingEnvironment) {
         super(name, age);
         if (livingEnvironment == null || livingEnvironment.isEmpty() && !livingEnvironment.isBlank()) {
             this.livingEnvironment = "Не указано";
@@ -34,7 +34,7 @@ public abstract class birds extends Animals{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        birds birds = (birds) o;
+        Birds birds = (Birds) o;
         return livingEnvironment.equals(birds.livingEnvironment);
     }
 

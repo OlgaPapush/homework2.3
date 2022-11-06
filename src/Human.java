@@ -5,11 +5,11 @@ public class Human {
     private String town;
     public String job;
 
-    Human(String name, String town,Integer yearOfBirth,String job) {
+    Human(String name, String town, Integer yearOfBirth, String job) {
 
-        if (this.name == null){
-            this.name =" no info";
-        }else {
+        if (this.name == null) {
+            this.name = " no info";
+        } else {
             this.name = name;
 
             if (town != null || !town.isEmpty() && !town.isBlank()) {
@@ -46,12 +46,14 @@ public class Human {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public String getTown() {  return town; }
+    public String getTown() {
+        return town;
+    }
 
     public void setTown(String town) {
-        if (town != null || !town.isEmpty() && !town.isBlank()){
-        this.town = town;
-        }else{
+        if (town != null || !town.isEmpty() && !town.isBlank()) {
+            this.town = town;
+        } else {
             this.town = "no info";
         }
     }

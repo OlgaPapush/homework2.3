@@ -2,23 +2,16 @@ package Animals;
 
 import java.util.Objects;
 
-public abstract class mammals extends Animals {
-
+public  class Amphibians extends Animals{
     private String livingEnvironment;
-    private double travelSpeed;
 
-    public mammals(String name, int age, String livingEnvironment, double travelSpeed) {
+    public Amphibians(String name, int age, String livingEnvironment) {
         super(name, age);
 
         if (livingEnvironment == null || livingEnvironment.isEmpty() && !livingEnvironment.isBlank()) {
             this.livingEnvironment = "Не указано";
         }else{
-        this.livingEnvironment = livingEnvironment;}
-
-        if (travelSpeed == 0) {
-            this.travelSpeed = 0;
-        }else{
-            this.travelSpeed = travelSpeed;}
+            this.livingEnvironment = livingEnvironment;}
 
     }
 
@@ -26,43 +19,45 @@ public abstract class mammals extends Animals {
 
     public void setLivingEnvironment(String livingEnvironment) {        this.livingEnvironment = livingEnvironment;    }
 
-    public double getTravelSpeed() {        return travelSpeed;    }
-
-    public void setTravelSpeed(double travelSpeed) {        this.travelSpeed = travelSpeed;    }
-
-    public  void walk() {
+    public  void hunt(){
+        System.out.println("В воде");
     }
 
     @Override
     public void eat() {
+        System.out.println("Питаться насекомыми, рыбой и мелкими земноводными");
     }
-
     @Override
     public void slip() {
+        System.out.println("Спать днем, а так же в зимнее время года");
     }
 
     @Override
     public void moving() {
+        System.out.println("Передвигаться в пределах отвденного водоема");
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        mammals mammals = (mammals) o;
-        return Double.compare(mammals.travelSpeed, travelSpeed) == 0 && livingEnvironment.equals(mammals.livingEnvironment);
+        Amphibians that = (Amphibians) o;
+        return livingEnvironment.equals(that.livingEnvironment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(livingEnvironment, travelSpeed);
-    }
+        return Objects.hash(livingEnvironment);
+            }
+
+
 
     @Override
     public String toString() {
-        return "mammals{" +
-                "livingEnvironment='" + livingEnvironment + '\'' +
-                ", travelSpeed=" + travelSpeed +
+    return "amphibians{" +
+        "name='" + getName() + '\'' +
+                ", age=" + getAge() +
+    "livingEnvironment='" + livingEnvironment + '\'' +
                 '}';
     }
 }

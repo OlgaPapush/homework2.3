@@ -2,12 +2,12 @@ package Animals;
 
 import java.util.Objects;
 
-public  class predators extends mammals {
+public  class Predators extends Mammals {
     private String typrOfFood;
 
-    public predators(String name,
-                      int age, String livingEnvironment,
-                      double travelSpeed, String typrOfFood) {
+    public Predators(String name,
+                     int age, String livingEnvironment,
+                     double travelSpeed, String typrOfFood) {
         super(name, age, livingEnvironment, travelSpeed);
 
         if (typrOfFood == null || typrOfFood.isEmpty() && !typrOfFood.isBlank()) {
@@ -47,7 +47,7 @@ public  class predators extends mammals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        predators predators = (predators) o;
+        Predators predators = (Predators) o;
         return typrOfFood.equals(predators.typrOfFood);
     }
 

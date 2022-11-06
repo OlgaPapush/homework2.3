@@ -1,67 +1,40 @@
-package transport;
+package Transport;
 
 import java.time.LocalDate;
 
-public class  Car extends Transport {
+public class Car extends Transport {
 
-    private double engineVolume;
-
-
-    private final String transmision;
-
-    private String bodyType;
-    private String registrationNumber;
-    private final Integer numberOfSeats;
-    private boolean summerTipe;
-    private Key key;
-    private Insurance insurance;
-
-
-    public Car( String brand,
-                String model,
-                String productionCountry,
-                String color,
-                double engineVolume,
-                int productionYear,
+    public Car(String brand,
+               String model,
+               int productionYear,
+               String productionCountry,
+               double engineVolume,
+               String color,
+               double maximumSpeed,
                String transmision,
                String bodyType,
                String registrationNumber,
                Integer numberOfSeats,
                boolean summerTipe,
                Key key,
-               Insurance insurance,
-                double maximumSpeed) {
-
-        super (brand,  model, productionYear, productionCountry,  color,   maximumSpeed);
-
-        if (engineVolume == 0) {
-            this.engineVolume = 1.5;
-        } else {
-            this.engineVolume = engineVolume;
-        }
-
-        if (key == null) {
-            this.key = new Key();
-        } else {
-            this.key = key;
-        }
-
-        if (insurance == null) {
-            this.insurance = insurance;
-        } else {
-            this.insurance =insurance;
-        }
-
+               Insurance insurance) {
+        super(brand, model, productionYear, productionCountry, engineVolume, color, maximumSpeed);
         this.transmision = transmision;
         this.bodyType = bodyType;
         this.registrationNumber = registrationNumber;
         this.numberOfSeats = numberOfSeats;
         this.summerTipe = summerTipe;
-
-
+        this.key = key;
+        this.insurance = insurance;
     }
 
-
+    private final String transmision;
+    private String bodyType;
+    private String registrationNumber;
+    private final Integer numberOfSeats;
+    private boolean summerTipe;
+    private Key key;
+    private Insurance insurance;
 
     public static Key getKey() {
         return Car.getKey();
@@ -71,13 +44,6 @@ public class  Car extends Transport {
         return Car.getInsurance();
     }
 
-    public double getEngineVolume() {
-        return engineVolume;
-    }
-
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
 
     public String getTransmision() {
         return transmision;
@@ -113,7 +79,7 @@ public class  Car extends Transport {
 
 
     public void carPrint() {
-        System.out.println( "Car" +
+        System.out.println("Car" +
                 "brand='" + getBrand() +
                 ", model='" + getModel() +
                 ", engineVolume=" + getEngineVolume() +
@@ -123,9 +89,8 @@ public class  Car extends Transport {
                 ", transmision='" + getTransmision() +
                 ", bodyType='" + getBodyType() +
                 ", registrationNumber='" + getRegistrationNumber() +
-                ", numberOfSeats=" + getNumberOfSeats() );
+                ", numberOfSeats=" + getNumberOfSeats());
     }
-
 
     public void seasonalTipe() {
         summerTipe = !summerTipe;
@@ -144,11 +109,9 @@ public class  Car extends Transport {
             return false;
         }
         return true;
-
     }
 
     public static class Key {
-
         private final boolean remoteEngineStart;
         private final boolean keylessAccess;
 
@@ -195,14 +158,13 @@ public class  Car extends Transport {
             return validity;
         }
 
-        public  double getCost() {
+        public double getCost() {
             return cost;
         }
 
-        public  String getNumber() {
+        public String getNumber() {
             return number;
         }
-
 
         public void checExpireDate() {
             if (validity.isBefore(LocalDate.now()) || validity.isEqual(LocalDate.now())) {
@@ -215,10 +177,23 @@ public class  Car extends Transport {
                 System.out.println("Ошибка");
             }
         }
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Автомобиль можно запрвлять: бензином, дизелем на заправках или заряжать на специальных электрозаправках, это если это электрокар");
+    }
+
+    @Override
+    public void startMoving() {
+        System.out.println(getBrand() + " " + getModel() + "начинает движение");
+    }
+
+    @Override
+    public void finishtMoving() {
+        System.out.println(getBrand() + " " + getModel() + "заканчивает движение");
 
     }
-    public  void refill(){
-        System.out.println("Автомобиль можно запрвлять: бензином, дизелем на заправках или заряжать на специальных электрозаправках, это если это электрокар");}
-
-
 }
+
+

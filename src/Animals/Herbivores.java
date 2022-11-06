@@ -3,7 +3,7 @@ package Animals;
 
 import java.util.Objects;
 
-public class Herbivores extends   mammals {
+public class Herbivores extends Mammals {
 
     private String typrOfFood;
 
